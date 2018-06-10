@@ -320,6 +320,28 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'], function(){
 			'uses'=>'DonhangController@postUpdateStatus'
 		]);
 	});
+
+	Route::group(['prefix'=>'slide'], function(){
+		Route::get('danh-sach', [
+			'as'=>'danhsachslide',
+			'uses'=>'SlideController@getDanhsach'
+		]);
+
+		Route::get('update-slide/{id}', [
+			'as'=>'updateSlide',
+			'uses'=>'SlideController@getUpdateSlide'
+		]);
+
+		Route::get('them-slide', [
+			'as'=>'themslide',
+			'uses'=>'SlideController@getThemslide'
+		]);
+
+		Route::post('them-slide', [
+			'as'=>'themslide',
+			'uses'=>'SlideController@postThemslide'
+		]);
+	});
 });
 
 Auth::routes();

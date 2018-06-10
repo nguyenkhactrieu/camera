@@ -211,9 +211,11 @@ class PageController extends Controller
         // type
         $file_type = $file->getClientMimeType('avatar');
         
-        $file->move('source/images/avatar', $file_path);
+        
 
         if($file_size <= 3145728 && $file_type == 'image/jpeg' || $file_type == 'image/jpg' || $file_type == 'image/png'){
+            
+            $file->move('source/images/avatar', $file_path);
             /*
             |   Delete old image
             */

@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	/* slide*/
+	$('#themSlide').click(function(){
+		var img = $('#fileimg').val();
+		if(img == ""){
+			alert('Chưa chọn hình');
+			return false;
+		}
+	});
 	//************************************kiểm tra dữ liệu rỗng************************************//
 	// Đưa con trỏ chuột ra khỏi text
 	$('#logUsername').blur(function(){

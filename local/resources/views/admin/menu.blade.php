@@ -26,7 +26,7 @@
 
         
 
-        <li><a href="slideshow.html"><i class="fa fa-picture-o" aria-hidden="true" style="color: #FF0404"></i> &nbsp Quản lý slideshow</a></li>
+        <li><a href="{{route('danhsachslide')}}"><i class="fa fa-picture-o" aria-hidden="true" style="color: #FF0404"></i> &nbsp Quản lý slideshow</a></li>
 
     </ul>
 
