@@ -47,7 +47,7 @@
 			<ul>
 				<?php $tongtien = 0 ?>
 				@foreach($chitiet_donhang as $chitiet_dh)
-				<?php $tongtien = $tongtien + $chitiet_dh->Gia;  ?>
+				<?php $tongtien = $tongtien + ($chitiet_dh->Gia*$chitiet_dh->SoLuong);  ?>
 				<li>
 					<div id="img_name">
 						<div id="img">

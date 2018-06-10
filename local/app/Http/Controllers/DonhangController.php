@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\donhang;
+use Session;
 use App\chitiet_donhang;
 class DonhangController extends Controller
 {
@@ -15,7 +16,12 @@ class DonhangController extends Controller
     public function postTimkiem_id (Request $req) {
     	$donhang = new donhang ();
     	$danhsach = $donhang->postTimkiem_id($req->id_donhang);
-    	return view('admin.donhang.donhang', compact('danhsach'));
+        if($danhsach != false){
+            return view('admin.donhang.donhang', compact('danhsach'));
+        }else{
+            return redirect()->back()->with(['flag'=>'danger', 'message'=>'Mã đơn hàng không tồn tại']);
+        }
+    	
     }
     public function getChitietdonhang ($id) {
     	$chitiet_donhang = new donhang();

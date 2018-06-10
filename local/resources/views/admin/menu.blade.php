@@ -6,7 +6,7 @@
 
         <li>
 
-            <a href="#"><i class="fa fa-table" aria-hidden="true" style="color:#FF2D2D"></i> &nbsp Quản lý Sản phẩm<i class="fa fa-chevron-right muiten " aria-hidden="true" style="line-height: 40px;"></i></a>
+            <a href="{{asset(route('danhsachchungloai'))}}"><i class="fa fa-table" aria-hidden="true" style="color:#FF2D2D"></i> &nbsp Quản lý Sản phẩm<i class="fa fa-chevron-right muiten " aria-hidden="true" style="line-height: 40px;"></i></a>
 
             <ul class="sub_menu">
 

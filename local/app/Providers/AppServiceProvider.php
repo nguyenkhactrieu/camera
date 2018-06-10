@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
             $view_share->with('loai_sp', $loai_sanpham);
         });
         view()->composer('slide',function($view){
-            $slide = slide::all();
+            $slide = slide::where('TrangThai', 1)->get();
             $view->with('slide', $slide);
         });
         //

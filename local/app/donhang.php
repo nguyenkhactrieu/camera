@@ -22,8 +22,14 @@ class donhang extends Model
    		return $chitiet;
    	}
    	public function postTimkiem_id ($id) {
-   		$danhsach_donhang = donhang::where('idDH', $id)->get();
-   		return $danhsach_donhang;
+         $iddonhang = donhang::where('idDH', $id)->count();
+         if($iddonhang == 1){
+            $danhsach_donhang = donhang::where('idDH', $id)->get();
+            return $danhsach_donhang;
+         }else{
+            return false;
+         }
+   		
    	}
 
    	public function postUpdateStatus ($id, $status) {
