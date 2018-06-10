@@ -39,8 +39,8 @@ class PageController extends Controller
     public function getIndex(){
         $sanpham = new sanpham();
         $sanpham = $sanpham->getTatCaSanPham(); //
-    	return view('page.trangchu', compact('sanpham'));
-       
+        return view('page.trangchu', compact('sanpham'));
+        
     }
     public function getLoaiSanPham ($slug_loai){
         
@@ -127,7 +127,7 @@ class PageController extends Controller
             [
                 'email' => 'required|email',
                 'password'=>'required|min:6|max:24',
-                'nhaplai_password'=>'required|same:password',
+                're_passwordi'=>'required|same:password',
                 'hoten' =>'required',
                 
             ],
@@ -138,8 +138,8 @@ class PageController extends Controller
                 'password.required'=>'nhập password',
                 'password.min'=>'Mật khẩu lớn hơn 6 kí tự',
                 'password.max'=>'Mật khẩu nhỏ hơn 24 kí tự',
-                'nhaplai_password.same'=>'Nhập lại không đúng',
-                'nhaplai_password.required'=>'nhập lại password',
+                're_passwordi.same'=>'Nhập lại không đúng',
+                're_passwordi.required'=>'nhập lại password',
                 'hoten.required'=>'nhập họ tên',
             ]
         );
@@ -148,7 +148,9 @@ class PageController extends Controller
         if($check = User::where('email', $req->email)->count()){
             return redirect()->back()->with(['flag'=>'danger', 'message'=>'Email đã tồn tại']);
         }else{
-
+            if(isset($req->groups)){
+                $user->level = $req->groups;
+            }
             $user->Email = $req->email;
             $user->Password = Hash::make($req->password);
             $user->name = $req->hoten;
@@ -164,7 +166,6 @@ class PageController extends Controller
         }else{
             return redirect()->route('trang-chu');
         }
-        
     }
     public function postDoiMatKhau (Request $req) {
         $this->validate($req,
@@ -220,7 +221,7 @@ class PageController extends Controller
                 File::delete('source/'.Auth::user()->UrlHinh);
             }
             if(User::where('id', Auth::user()->id)->update([
-            'UrlHinh'=> $file_path])){
+                'UrlHinh'=> $file_path])){
                 return redirect()->back()->with(['flag'=>'success', 'message'=>'Đổi ảnh thành công']);
             }
             return redirect()->back()->with(['flag'=>'danger', 'message'=>'Đổi ảnh không thành công']);

@@ -23,4 +23,13 @@ class UserController extends Controller
     	$user = $user->postSua($req);
     	return redirect()->route('user');
     }
+
+    public function getThemUser () {
+        return view('admin.user.them');
+    }
+
+    public function getXoaUser ($id) {
+        $user_del = User::where('id', $id)->delete();
+        return redirect()->back();
+    }
 }

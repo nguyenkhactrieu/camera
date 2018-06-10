@@ -60,17 +60,6 @@ $(document).ready(function(){
 			$(this).next('span').html('');
 		}
 	});
-
-	$('#usernamei').blur(function(){
-		var username = $(this).val();
-		if(username == ''){
-			$(this).next('span').html('Username không được để trống');
-			return false;
-		}else{
-			$(this).next('span').html('');
-		}
-	});
-
 	$('#passwordi').blur(function(){
 		var password = $(this).val();
 		if(password.length < 7){
@@ -122,49 +111,13 @@ $(document).ready(function(){
             return false;
         }
     }
-
-	$('#sdti').blur(function(){
-		var sdt = $(this).val();
-		if(sdt == ''){
-			$(this).next('span').html('Số điện thoại không được để trống');
-			return false;
-		}
-		// nếu return true
-        if(validatephone(sdt)){
-            // hidden class error
-            $('#sdti').next('span').html('');
-        }else{ // return false  
-            $('#sdti').next('span').text('Vui lòng nhập đúng số điện thoại');
-            return false
-        }
-	});
-	// hàm này kiểm tra số điện thoại
-    function validatephone(sdt) {
-        var filter = /^[0-9-+]+$/;
-        if (filter.test(sdt)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    $('#diachii').blur(function(){
-		var diachi = $(this).val();
-		if(diachi == ''){
-			$(this).next('span').html('Địa chỉ không được để trống');
-			return false;
-		}else{
-			$(this).next('span').html('');
-		}
-	});
+   
     $('#submitU').click(function(){
     	var hoten = $('#hoteni').val();
-    	var username = $('#usernamei').val();
     	var password = $('#passwordi').val();
     	var re_pass = $('#re_passwordi').val();
     	var email = $('#emaili').val();
-    	var sdt = $('#sdti').val();
-    	var diachi = $('#diachii').val();
+    	
     	//----------họ tên------------//
 		if(hoten == ''){
 			$('#hoteni').next('span').html('Họ tên không được để trống');
@@ -193,43 +146,6 @@ $(document).ready(function(){
 	            return false;
 	        }
 	    }
-	    //----------SDT------------//
-		if(sdt == ''){
-			$('#sdti').next('span').html('Số điện thoại không được để trống');
-			return false;
-		}
-		// nếu return true
-        if(validatephone(sdt)){
-            // hidden class error
-            $('#sdti').next('span').html('');
-        }else{ // return false  
-            $('#sdti').next('span').text('Vui lòng nhập đúng số điện thoại');
-            return false;
-        }
-        // hàm này kiểm tra số điện thoại
-	    function validatephone(sdt) {
-	        var filter = /^[0-9-+]+$/;
-	        if (filter.test(sdt)) {
-	            return true;
-	        }
-	        else {
-	            return false;
-	        }
-	    }
-	    //----------Địa chỉ------------//
-		if(diachi == ''){
-			$('#diachii').next('span').html('Địa chỉ không được để trống');
-			return false;
-		}else{
-			$('#diachii').next('span').html('');
-		}
-		//----------tên đăng nhập------------//
-		if(username == ''){
-			$('#usernamei').next('span').html('username không được để trống');
-			return false;
-		}else{
-			$('#usernamei').next('span').html('');
-		}
 		//----------nhập pass------------//
 		if(password.length < 7){
 			$('#passwordi').next('span').html('password phải lớn hơn 6 ký tự');

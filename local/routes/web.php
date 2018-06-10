@@ -284,6 +284,19 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'], function(){
 			'as'=>"sua-user",
 			'uses'=>'UserController@postSua'
 		]);
+		Route::get('xoa/{id}', [
+			'as'=>'xoaUser',
+			'uses'=>'UserController@getXoaUser'
+		]);
+		Route::get('them', [
+			'as'=>'themUser',
+			'uses'=>'UserController@getThemUser'
+		]);
+
+		Route::post('them', [
+			'as'=>'themUser',
+			'uses'=>'PageController@postDangKi'
+		]);
 	});
 
 	Route::group(['prefix'=>'don-hang'], function(){

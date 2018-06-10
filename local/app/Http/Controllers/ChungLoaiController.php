@@ -55,6 +55,6 @@ class ChungLoaiController extends Controller
 
     public function getXoaChungLoai  ($id) {
         $xoa = chungloai::where('idCL', $id)->delete();
-        return redirect()->back();
+        return redirect()->route('danhsachchungloai');
     }
 }

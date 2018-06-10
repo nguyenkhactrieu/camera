@@ -16,29 +16,41 @@
 
             <div>
 
-                <a href="" title="Thêm"><i class="fa fa-plus-circle" aria-hidden="true" style="color:red"></i></a>
+                <a href="{{route('themUser')}}" title="Thêm"><i class="fa fa-plus-circle" aria-hidden="true" style="color:red"></i></a>
 
             </div>
 
         </td>
 
         @foreach($user as $info_U)
-            <tr>
-                <td align="center">{{$info_U->name}}</td>
+        <tr>
+            <td align="center">{{$info_U->name}}</td>
 
-                <td align="center">@switch($info_U->level) @case(0) Khách hàng @break @case(1) SupperAdmin @break @case(2) Admin @break  @endswitch</td>
+            <td align="center">@switch($info_U->level) @case(0) Khách hàng @break @case(1) SupperAdmin @break @case(2) Admin @break  @endswitch</td>
 
-                <td align="center">{{$info_U->email}}</td>
+            <td align="center">{{$info_U->email}}</td>
 
-                <td>
+            <td>
 
-                    <div>
+                <div>
 
-                        <a href="" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" title="Xóa">
+                    <a href="{{ URL::route('xoaUser', $info_U->id ) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" title="Xóa">
 
-                            <i class="fa fa-trash-o" aria-hidden="true" style="color: #895FA4"></i>
+                        <i class="fa fa-trash-o" aria-hidden="true" style="color: #895FA4"></i>
 
-                        </a>
+                    </a>
+
+                </div>
+
+            </td>
+
+            <td>
+
+                <div>
+
+                    <a href="{!! URL::route('sua-user') !!}/{{$info_U->id}}" title="Sửa">
+
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #5021FE"></i></a>
 
                     </div>
 
@@ -48,19 +60,7 @@
 
                     <div>
 
-                        <a href="{{route('sua-user')}}/{{$info_U->id}}" title="Sửa">
-
-                            <i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #5021FE"></i></a>
-
-                    </div>
-
-                </td>
-
-                <td>
-
-                    <div>
-
-                        <a href="" title="Xem Chi Tiết">
+                        <a href="#" title="Xem Chi Tiết">
 
                             <i class="fa fa-info-circle" aria-hidden="true" style="color: #CC57F8"></i>
 
@@ -72,12 +72,12 @@
 
             </tr>
 
-        @endforeach	
+            @endforeach	
 
-    </table>
+        </table>
 
-    <div class="row">{{$user->links()}}</div>
+        <div class="row">{{$user->links()}}</div>
 
-</div>
+    </div>
 
-@endsection
+    @endsection
