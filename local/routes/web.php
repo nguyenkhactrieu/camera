@@ -286,10 +286,20 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'], function(){
 		]);
 	});
 
-	Route::get(['prefix'=>'don-hang'], function(){
-		Route::get('danh-sach-don-hang', [
+	Route::group(['prefix'=>'don-hang'], function(){
+		Route::get('danh-sach', [
 			'as'=>'danhsachdonhang',
-			'uses'=>
+			'uses'=>'DonhangController@getDanhsach'
+		]);
+
+		Route::get('chi-tiet/{id}',[
+			'as'=>'chitietdonhang',
+			'uses'=>'DonhangController@getChitietdonhang'
+		]);
+
+		Route::post('tim-kiem-theo-id', [
+			'as'=>'timtheoid',
+			'uses'=>'DonhangController@postTimkiem_id'
 		]);
 	});
 });
