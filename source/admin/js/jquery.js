@@ -25,16 +25,7 @@ $(document).ready(function(){
 			$('#logPassword').next('.error').hide();
 		}
 	});
-	// captcha 
-	$('#captcha').blur(function(){
-		var code = $('#captcha').val();
-		if(code == ""){
-			$('#captcha').next('.error').show();
-			return false;
-		}else {
-			$('#captcha').next('.error').hide();
-		}
-	});
+	
 	// khi nút đăng nhập dc nhấn.
 	$('#btnLogin').click(function(){
 		// lấy val của text user.
@@ -55,22 +46,8 @@ $(document).ready(function(){
 		}else {
 			$('#logPassword').next('.error').hide();
 		}
-		// captcha
-		var code = $('#captcha').val();
-		if(code == ""){
-			$('#captcha').next('.error').show();
-			return false;
-		}else {
-			$('#captcha').next('.error').hide();
-		}
+		
 	});
-	// reload captcha 
-	$('#reload').click(function(){
-		var id= new Date().getTime();
-        $('#captcha_img').attr('src', 'captcha/captcha.php');
-        $('#captcha_img').attr('src', 'captcha/captcha.php?'+ id);
-	});
-
 	/*---------------------------------------------------------------*/
 	/*---------------------------------------------------------------*/
 	/*-----------------------------Thêm USERs----------------------------------*/
@@ -467,11 +444,6 @@ $(document).ready(function(){
 		}else{
 			$('#ithemthoai').next('span').html('');
 		}
-	});
-	// rewrite url lọc trạng thái đơn hàng.
-	$('#trangthaidonhang').change(function(){
-		var trangthai = $(this).val();
-		window.location.href = "trang-thai-don-hang-"+trangthai+".html";
 	});
 	/*
 	|

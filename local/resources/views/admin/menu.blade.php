@@ -24,7 +24,7 @@
 
         <li><a href="{{route('danhsachdonhang')}}"><i class="fa fa-address-card-o" aria-hidden="true" style="color:#75FF99"></i> &nbsp Quản lý Đơn hàng</a></li>
 
-        <li><a href="binh-luan-san-pham.html"><i class="fa fa-comments-o" aria-hidden="true" style="color:#FEDABF"></i> &nbsp Quản lý bình luận</a></li>
+        
 
         <li><a href="slideshow.html"><i class="fa fa-picture-o" aria-hidden="true" style="color: #FF0404"></i> &nbsp Quản lý slideshow</a></li>
 

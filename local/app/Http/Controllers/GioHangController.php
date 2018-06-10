@@ -90,6 +90,7 @@ class GioHangController extends Controller
          */
         $donhang = new donhang();
         $idDH = time();
+        $ngaydathang =  date('y/m/d h/m/s');
         $donhang->HoTen = $req->name;
         $donhang->GioiTinh = $req->male_f;
         $donhang->SDT = $req->phone;
@@ -97,6 +98,7 @@ class GioHangController extends Controller
         $donhang->GhiChu = $req->note;
         $donhang->SoNha = $req->so_nha;
         $donhang->idDH = $idDH;
+        $donhang->NgayDatHang = $ngaydathang;
         $donhang->save();
 
 
@@ -121,7 +123,7 @@ class GioHangController extends Controller
             $male_f = 'Chị';
         }
         $info_address = $req->so_nha;
-        return view('page.order', compact('name','content','total','male_f','info_address'));
+        return view('page.order', compact('name','content','total','male_f','info_address','idDH'));
     }
      public function getDatHang(){
         return view('errors.error');

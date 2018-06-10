@@ -301,6 +301,11 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'], function(){
 			'as'=>'timtheoid',
 			'uses'=>'DonhangController@postTimkiem_id'
 		]);
+
+		Route::post('update-status', [
+			'as'=>'updateStatus',
+			'uses'=>'DonhangController@postUpdateStatus'
+		]);
 	});
 });
 
