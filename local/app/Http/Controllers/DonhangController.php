@@ -19,7 +19,7 @@ class DonhangController extends Controller
         if($danhsach != false){
             return view('admin.donhang.donhang', compact('danhsach'));
         }else{
-            return redirect()->back()->with(['flag'=>'danger', 'message'=>'Mã đơn hàng không tồn tại']);
+            return redirect()->route('danhsachdonhang')->with(['flag'=>'danger', 'message'=>'Mã đơn hàng không tồn tại']);
         }
     	
     }

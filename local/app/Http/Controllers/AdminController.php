@@ -9,6 +9,8 @@ use App\chungloai;
 use App\User;
 use App\sanpham;
 use App\loai;
+use Google_Client;
+use Google_Service_Analytics; 
 class AdminController extends Controller
 {
 
@@ -78,7 +80,31 @@ class AdminController extends Controller
     |
      */
     public function getTrangChu(){
-        return view('admin.trangchu.trangchu');
+        require_once $_SERVER['DOCUMENT_ROOT'].'/camera/local/vendor/autoload.php'; 
+
+    // 1. Initialize a client and set scope to our required API (Google Analytics)
+        $client = new Google_Client();
+        $client->setScopes(array('https://www.googleapis.com/auth/analytics'));
+
+    // provide the service account JSON file.
+    // which holds all required information (private key, email, etc)
+        putenv('GOOGLE_APPLICATION_CREDENTIALS='.$_SERVER["DOCUMENT_ROOT"].'/camera/local/app/analytics/service-account-credentials.json');
+
+    // apply the JSON file on the current client
+        $client->useApplicationDefaultCredentials();
+
+        if ($client->isAccessTokenExpired()) {
+            $client->refreshTokenWithAssertion();
+        }
+
+    // an array with information about access token
+        $arrayInfo = $client->getAccessToken();
+
+    // access the access token directly
+        $accesstoken = $arrayInfo['access_token'];
+
+    // pass the token to the view, to be used for authentication
+        return view('admin.trangchu.trangchu', compact('accesstoken'));
     }
 
     public function getChonChungLoai ($idChungLoai){

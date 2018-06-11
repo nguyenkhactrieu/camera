@@ -4,39 +4,22 @@
 
 <head>
 
-    <style>
+  <style>
 
-        img[src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]
+  img[src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]
 
-    {
+  {
 
-        display:none;
+    display:none;
 
-    }
+  }
 
-    </style>
+</style>
 
-    
 
-    <script>
-
-(function(w,d,s,g,js,fs){
-
-  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-
-  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-
-  js.src='https://apis.google.com/js/platform.js';
-
-  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-
-}(window,document,'script'));
-
-</script>
-<base href="http://localhost/camera/">
 <link rel="Shortcut Icon" href="{{asset('source/images/camera-42319_960_720.png')}}" type="image/x-icon" />
 
-<!--<base href="http://localhost/khactrieucamera3/admin/" />-->
+<base href="http://localhost/camera/" />
 
 <meta name="viewport" content="width=device-width", initial-scale=1 /> 
 
@@ -68,7 +51,7 @@
 
 <script>
 
-    $(document).ready(function(){
+  $(document).ready(function(){
 
        /* $("#chungloai").change(function(){
 
@@ -80,7 +63,7 @@
 
             });
 
-        });*/
+          });*/
 
         /*var hide = 1;
 
@@ -104,170 +87,47 @@
 
             }
 
-        });*/
+          });*/
 
-    });
+        });
 
-</script>
+      </script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div id="wrapper">
+      <div id="wrapper">
 
         @include ('admin.header')
 
         <div id="container">
 
-            <div id="menu_wrapper">
+          <div id="menu_wrapper">
 
-                @include ('admin.menu')
+            @include ('admin.menu')
 
-            </div>
+          </div>
 
-            <div id="content" >
+          <div id="content" >
 
-                @yield('content')
+            @yield('content')
 
-            </div>
+          </div>
 
-            <div class="clear" style="clear: both;">
+          <div class="clear" style="clear: both;">
 
-            </div>
+          </div>
 
         </div>
 
         <div class="clear" style="clear: both;">
 
-            </div>
-
-        <div id="footer">
-
-            
-
         </div>
 
-    </div>
-
-    
-
-    <script>
-
-
-
-gapi.analytics.ready(function() {
-
-
-
-  /**
-
-   * Authorize the user immediately if the user has already granted access.
-
-   * If no access has been created, render an authorize button inside the
-
-   * element with the ID "embed-api-auth-container".
-
-   */
-
-  gapi.analytics.auth.authorize({
-
-    container: 'embed-api-auth-container',
-
-    clientid: '872715588440-8qkipfsrak4eu94qmpsuhlqhhd6va20s.apps.googleusercontent.com'
-
-  });
-
-
-
-
-
-  /**
-
-   * Create a new ViewSelector instance to be rendered inside of an
-
-   * element with the id "view-selector-container".
-
-   */
-
-  var viewSelector = new gapi.analytics.ViewSelector({
-
-    container: 'view-selector-container'
-
-  });
-
-
-
-  // Render the view selector to the page.
-
-  viewSelector.execute();
-
-
-
-
-
-  /**
-
-   * Create a new DataChart instance with the given query parameters
-
-   * and Google chart options. It will be rendered inside an element
-
-   * with the id "chart-container".
-
-   */
-
-  var dataChart = new gapi.analytics.googleCharts.DataChart({
-
-    query: {
-
-      metrics: 'ga:sessions',
-
-      dimensions: 'ga:date',
-
-      'start-date': '30daysAgo',
-
-      'end-date': 'yesterday'
-
-    },
-
-    chart: {
-
-      container: 'chart-container',
-
-      type: 'LINE',
-
-      options: {
-
-        width: '100%'
-
-      }
-
-    }
-
-  });
-
-
-
-
-
-  /**
-
-   * Render the dataChart on the page whenever a new view is selected.
-
-   */
-
-  viewSelector.on('change', function(ids) {
-
-    dataChart.set({query: {ids: ids}}).execute();
-
-  });
-
-
-
-});
-
-</script>
-
-</body>
-
-</html>
+        <div id="footer">
+        </div>
+      </div>
+    </body>
+
+    </html>

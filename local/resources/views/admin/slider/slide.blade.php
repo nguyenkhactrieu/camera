@@ -6,11 +6,11 @@
 		<th style="text-align: center;">STT</th>
 		<th style="text-align: center;">Image</th>
 		<td colspan="2">
-            <div>
-                <a href="{{route('themslide')}}" title="Thêm"><i class="fa fa-plus-circle" aria-hidden="true" style="color:red"></i></a>
-            </div>
-        </td>
-        <?php $stt = 1 ?>
+			<div>
+				<a href="{{route('themslide')}}" title="Thêm"><i class="fa fa-plus-circle" aria-hidden="true" style="color:red"></i></a>
+			</div>
+		</td>
+		<?php $stt = 1 ?>
 		@foreach($danhsach as $danhsach_sl)
 		<tr>
 			<td>{{$stt}} <?php $stt++; ?></td>
