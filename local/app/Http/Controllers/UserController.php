@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 class UserController extends Controller
 {
     public function getDanhSach () {
@@ -13,6 +14,10 @@ class UserController extends Controller
     }
 
     public function getsua ($id) {
+        $author = User::where('id', $id)->select('author','id')->first();
+        if(Auth::user()->author != 1 && ($author->author == 1 || (Auth::user()->author == 2 && (Auth::user()->id != $id )  ) )){
+            return redirect()->back()->with(['flag'=>'danger', 'message'=>'KHÔNG CÓ QUYỀN SỬA']);
+        }
     	$user = new User();
     	$user = $user->getSua($id);
     	return view('admin.user.sua', compact('user'));

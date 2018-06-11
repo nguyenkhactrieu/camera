@@ -23,7 +23,7 @@ class adminMidleware
         |   chưa đăng nhập thì quay về trang đăng nhập
         |
          */
-        if (Auth::check() && Auth::user()->level >= 1) {
+        if (Auth::check() && Auth::user()->level = 1 ) {
             return $next($request);
         }else{
             Auth::logout();

@@ -56,10 +56,14 @@ class AdminController extends Controller
 
         if(Auth::attempt(['email'=>$req->email,'password'=>$req->password, 'level'=>1], $remember)){
 
-            return redirect()->route('trangchuadmin');
+            if(Auth::user()->TinhTrang == 1 ){
+                return redirect()->route('trangchuadmin');
+            }else{
+                Auth::logout();
+                return redirect()->back()->with(['flag'=>'danger', 'message'=>'TÀI KHOẢN ĐANG BỊ KHÓA, VUI LÒNG LIÊN HỆ QUẢN TRỊ VIÊN']);
+            }
 
         }else{
-
             return redirect()->back()->with(['flag'=>'danger', 'message'=>'SAI TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU']);
         }
     }

@@ -79,7 +79,7 @@
                 <td align="center">{{$ds_sp->TenSP}}</td>
 
                 <td>
-
+                    @can('delete')
                     <div>
 
                         <a href="{{asset('admin/san-pham/xoa')}}/{{$ds_sp->idSP}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" title="Xóa">
@@ -89,11 +89,11 @@
                         </a>
 
                     </div>
-
+                    @endcan
                 </td>
 
                 <td>
-
+                    @can('edit')
                     <div>
 
                         <a href="{{asset('admin/san-pham/sua')}}/{{$ds_sp->idSP}}" title="Sửa">
@@ -101,7 +101,7 @@
                             <i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #5021FE"></i></a>
 
                     </div>
-
+                    @endcan
                 </td>
 
                 <td>

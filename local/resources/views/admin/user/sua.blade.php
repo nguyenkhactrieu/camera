@@ -13,24 +13,25 @@
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 
 			<div id="idGroup" class="items-input">
-
+			@if(auth::user()->author == 1)
 				<div class="label"><label for="level">Level</label></div>
 
 				<div class="input">
 
-					<select name="groups">
-
+					<select name="author">
+						
 						<option value="">----Chọn Group User----</option>
+						
+						<option value="0" <?php if($user->author == 0 ) echo "selected"; ?> >Người dùng thường</option>
 
-						<option value="0" <?php if($user->idGroup == 0 ) echo "selected"; ?> >Người dùng thường</option>
-
-						<option value="1" <?php if($user->idGroup == 1 ) echo "selected"; ?> >SupperAdmin</option>
-						<option value="2" <?php if($user->idGroup == 2 ) echo "selected"; ?> >Admin</option>
+						<option value="1" <?php if($user->author == 1 ) echo "selected"; ?> >SupperAdmin</option>
+						<option value="2" <?php if($user->author == 2 ) echo "selected"; ?> >Admin</option>
+						
 
 					</select>
 
 				</div>
-
+			@endif
 				<div style="clear: both;"></div>
 
 			</div><hr>

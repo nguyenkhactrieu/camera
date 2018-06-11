@@ -107,7 +107,12 @@ class PageController extends Controller
         $remember = $req->input('remember');
         //('email-cot trong database')
         if(Auth::attempt(['email'=>$req->email, 'password'=>$req->password], $remember)){
-            return redirect()->route('trang-chu');
+            if(Auth::user()->TinhTrang == 1 ){
+                return redirect()->route('trangchuadmin');
+            }else{
+                Auth::logout();
+                return redirect()->back()->with(['flag'=>'danger', 'message'=>'TÀI KHOẢN ĐANG BỊ KHÓA, VUI LÒNG LIÊN HỆ QUẢN TRỊ VIÊN']);
+            }
         }else{
             return redirect()->back()->with(['flag'=>'danger', 'message'=>'EMAIL HOẶC MẬT KHẨU KHÔNG ĐÚNG']);
         }

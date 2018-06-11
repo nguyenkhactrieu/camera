@@ -29,7 +29,7 @@
                 <td align="center">{{$loai->TenLoai}}</td>
 
                 <td>
-
+                    @can('delete')
                     <div>
 
                         <a href="admin/loai/xoa-loai/{{$loai->idLoai}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" title="Xóa"><i class="fa fa-trash-o" aria-hidden="true" style="color: #895FA4"></i>
@@ -37,11 +37,11 @@
                         </a>
 
                     </div>
-
+                    @endcan
                 </td>
 
                 <td>
-
+                    @can('edit')
                     <div>
 
                         <a href="admin/loai/sua-loai/{{$loai->idLoai}}" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #5021FE"></i>
@@ -49,7 +49,7 @@
                         </a>
 
                     </div>
-
+                    @endcan
                 </td>
 
             </tr>

@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     function postSua ($req){
         $user = User::where('id',$req->idUser)->update([
-            'level' => $req->groups,
+            'author' => $req->author,
             'name' => $req->hoten,
             'TinhTrang' => $req->tinhtrang,
             'slug'=> str_slug($req->hoten)
